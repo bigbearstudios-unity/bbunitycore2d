@@ -3,6 +3,7 @@ using UnityEngine;
 
 namespace BBUnity.CameraUtilities {
 
+    [System.Serializable]
     public struct Camera2DShakeSettings {
         [SerializeField]
         private bool _createOnAwake;

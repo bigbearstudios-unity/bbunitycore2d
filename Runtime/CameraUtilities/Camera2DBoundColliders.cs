@@ -18,6 +18,9 @@ namespace BBUnity.CameraUtilities {
         [SerializeField, Layer]
         private int _layer;
 
+        [SerializeField, Tooltip("The transform which will be used as the container for the Camera2DBoundColliders")]
+        private GameObject _attachTo;
+
         public bool CreateOnAwake {
             get { return _createOnAwake; }
         }
@@ -34,11 +37,24 @@ namespace BBUnity.CameraUtilities {
             get { return _layer; }
         }
 
+        public GameObject BoundsContainer {
+            get { return _attachTo; }
+        }
+
+        public bool HasAttachmentObject {
+            get { return _attachTo != null; }
+        }
+
+        public Transform AttachmentObjectOrDefault(Transform def) {
+            return HasAttachmentObject ? BoundsContainer.transform : def;
+        }
+
         public Camera2DBoundColliderSettings(bool createOnAwake, float offset, float size, int layer) {
             _createOnAwake = createOnAwake;
             _offset = offset;
             _size = size;
             _layer = layer;
+            _attachTo = null;
         }
     }
 
@@ -49,15 +65,12 @@ namespace BBUnity.CameraUtilities {
         private BoxCollider2D _leftCollider;
         private BoxCollider2D _rightCollider;
 
-        private GameObject _boundingContainer;
-
         private void CreateColliders(Camera2DBounds bounds, Camera2DBoundColliderSettings settings) {
             float verticalSize = bounds.Width + (settings.Offset * 2);
             float verticalOffset = (bounds.Height / 2) + (settings.Size / 2) + settings.Offset;
 
             float horizontalSize = bounds.Height + (settings.Size * 2) + (settings.Offset * 2);
             float horizontalOffset = (bounds.Width / 2) + (settings.Size / 2) + settings.Offset;
-
 
             _topCollider = CreateCollider(new Vector2(0.0f, verticalOffset), new Vector2(verticalSize, settings.Size));
             _rightCollider = CreateCollider( new Vector2(horizontalOffset, 0.0f), new Vector2(settings.Size, horizontalSize));
@@ -73,7 +86,8 @@ namespace BBUnity.CameraUtilities {
         }
 
         public static Camera2DBoundColliders Create(Camera2D camera, Camera2DBoundColliderSettings settings) {
-            return Utilities.Tap(Utilities.CreateGameObject<Camera2DBoundColliders>("Bound Colliders", camera.transform), (Camera2DBoundColliders obj) => {
+            Transform parent = settings.AttachmentObjectOrDefault(camera.transform);
+            return Utilities.Tap(Utilities.AddOrGetComponent<Camera2DBoundColliders>(parent.gameObject), (Camera2DBoundColliders obj) => {
                 obj.SetLayer(settings.Layer);
                 obj.ResetTransform();
                 obj.CreateColliders(camera.Bounds, settings);

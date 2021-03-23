@@ -43,7 +43,7 @@ namespace BBUnity {
 
         public void Shake(float amount = 5.0f, float duration = 1.0f) {
             if(_cameraShake == null) {
-                    _cameraShake = Camera2DShake.Create(this);
+                _cameraShake = Camera2DShake.Create(this);
             }
 
             _cameraShake.Shake(amount, duration);
