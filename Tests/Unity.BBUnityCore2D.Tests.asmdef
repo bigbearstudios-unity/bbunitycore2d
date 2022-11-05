@@ -1,9 +1,10 @@
 {
     "name": "Unity.BBUnityCore2D.Tests",
+    "rootNamespace": "",
     "references": [
-        "GUID:0f5588620231a45c19173395c4fad5fd",
-        "GUID:27619889b8ba8c24980f49ee34dbb44a",
-        "GUID:e439f6cd0e24d88459748c09cd50b59c"
+        "Unity.BBUnityCore2D",
+        "UnityEngine.TestRunner",
+        "Unity.BBUnityTestSupport"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

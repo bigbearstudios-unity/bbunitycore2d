@@ -70,19 +70,19 @@ namespace BBUnity {
         }
 
         public bool IsOutOfBoundsTop(Vector3 objectPosition) {
-            return objectPosition.y > _bounds.HalfHeight + Position.y;
+            return objectPosition.y > _bounds.HalfHeight + transform.position.y;
         }
 
         public bool IsOutOfBoundsRight(Vector3 objectPosition) {
-            return objectPosition.x > _bounds.HalfWidth + Position.y;
+            return objectPosition.x > _bounds.HalfWidth + transform.position.y;
         }
 
         public bool IsOutOfBoundsBottom(Vector3 objectPosition) {
-            return objectPosition.y < -_bounds.HalfHeight + Position.y;
+            return objectPosition.y < -_bounds.HalfHeight + transform.position.y;
         }
 
         public bool IsOutOfBoundsLeft(Vector3 objectPosition) {
-            return objectPosition.y < -_bounds.HalfWidth + Position.y;
+            return objectPosition.y < -_bounds.HalfWidth + transform.position.y;
         }
     }
 }
