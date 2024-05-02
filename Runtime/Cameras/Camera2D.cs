@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 
-using BBUnity.CameraUtilities;
+namespace BBUnity.Core2D.Cameras {
 
-namespace BBUnity {
-
-    [AddComponentMenu("BBUnity/2D/Camera2D")]
-    public class Camera2D : BaseBehaviour {
+    [AddComponentMenu("BBUnity/Core 2D/Cameras/Camera2D")]
+    public class Camera2D : BBMonoBehaviour {
 
         [SerializeField]
         private Camera2DBoundColliderSettings _boundColliderSettings;

@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace BBUnity.CameraUtilities {
+namespace BBUnity.Core2D.Cameras {
     public class Camera2DBounds {
 
         private Camera _camera;

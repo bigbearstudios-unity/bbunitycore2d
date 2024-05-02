@@ -1,12 +1,12 @@
-﻿using NUnit.Framework;
-
+﻿using System;
 using UnityEngine;
-using System;
+using NUnit.Framework;
 
-using BBUnity.CameraUtilities;
+using BBUnity;
+using BBUnity.Core2D.Cameras;
 using BBUnity.TestSupport;
 
-namespace CameraUtilities {
+namespace Cameras {
     public class Camera2DBoundsTests {
 
         [Test]

@@ -1,11 +1,12 @@
-﻿using NUnit.Framework;
+﻿using System;
+using UnityEngine;
+using NUnit.Framework;
 
 using BBUnity;
+using BBUnity.Core2D.Cameras;
 using BBUnity.TestSupport;
-using UnityEngine;
-using System;
 
-namespace CameraUtilities {
+namespace Cameras {
     public class Camera2DBoundColliders : MonoBehaviour {
 
     }

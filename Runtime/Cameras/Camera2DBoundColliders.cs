@@ -1,7 +1,9 @@
 ﻿using System;
 using UnityEngine;
 
-namespace BBUnity.CameraUtilities {
+using BBUnity.Attributes;
+
+namespace BBUnity.Core2D.Cameras {
 
     [Serializable]
     public struct Camera2DBoundColliderSettings {
@@ -58,7 +60,7 @@ namespace BBUnity.CameraUtilities {
         }
     }
 
-    public class Camera2DBoundColliders : BaseBehaviour {
+    public class Camera2DBoundColliders : BBMonoBehaviour {
 
         private BoxCollider2D _topCollider;
         private BoxCollider2D _bottomCollidier;
@@ -87,10 +89,10 @@ namespace BBUnity.CameraUtilities {
 
         public static Camera2DBoundColliders Create(Camera2D camera, Camera2DBoundColliderSettings settings) {
             Transform parent = settings.AttachmentObjectOrDefault(camera.transform);
-            return Utilities.Tap(Utilities.AddOrGetComponent<Camera2DBoundColliders>(parent.gameObject), (Camera2DBoundColliders obj) => {
-                obj.SetLayer(settings.Layer);
-                obj.ResetTransform();
-                obj.CreateColliders(camera.Bounds, settings);
+            return Utilities.Tap(Utilities.AddOrGetComponent<Camera2DBoundColliders>(parent.gameObject), (Camera2DBoundColliders colliders) => {
+                colliders.SetLayer(settings.Layer);
+                colliders.ResetTransform();
+                colliders.CreateColliders(camera.Bounds, settings);
             });
         }
     }

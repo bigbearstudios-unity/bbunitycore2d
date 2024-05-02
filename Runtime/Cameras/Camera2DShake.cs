@@ -1,7 +1,7 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-namespace BBUnity.CameraUtilities {
+namespace BBUnity.Core2D.Cameras {
 
     [System.Serializable]
     public struct Camera2DShakeSettings {
@@ -17,7 +17,7 @@ namespace BBUnity.CameraUtilities {
         }
     }
 
-    public class Camera2DShake : BaseBehaviour {
+    public class Camera2DShake : BBMonoBehaviour {
         private float _startAmount;
         private float _startDuration;
 
