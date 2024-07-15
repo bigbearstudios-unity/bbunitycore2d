@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-using BBUnity.Attributes;
+using BBUnity;
 
 namespace BBUnity.Core2D.Cameras {
 
@@ -87,13 +87,13 @@ namespace BBUnity.Core2D.Cameras {
             });
         }
 
-        public static Camera2DBoundColliders Create(Camera2D camera, Camera2DBoundColliderSettings settings) {
-            Transform parent = settings.AttachmentObjectOrDefault(camera.transform);
-            return Utilities.Tap(Utilities.AddOrGetComponent<Camera2DBoundColliders>(parent.gameObject), (Camera2DBoundColliders colliders) => {
-                colliders.SetLayer(settings.Layer);
-                colliders.ResetTransform();
-                colliders.CreateColliders(camera.Bounds, settings);
-            });
-        }
+        // public static Camera2DBoundColliders Create(Camera2D camera, Camera2DBoundColliderSettings settings) {
+        //     Transform parent = settings.AttachmentObjectOrDefault(camera.transform);
+        //     return Utilities.Tap(Utilities.AddOrGetComponent<Camera2DBoundColliders>(parent.gameObject), (Camera2DBoundColliders colliders) => {
+        //         colliders.SetLayer(settings.Layer);
+        //         colliders.ResetTransform();
+        //         colliders.CreateColliders(camera.Bounds, settings);
+        //     });
+        // }
     }
 }
