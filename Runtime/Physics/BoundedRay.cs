@@ -1,8 +1,6 @@
 using UnityEngine;
 
-using BBUnity;
-
-namespace BBUnity.Core2D.Physics {
+namespace BBUnity.Physics2D {
 
     /// <summary>
     /// A single ray

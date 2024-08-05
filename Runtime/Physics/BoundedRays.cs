@@ -1,11 +1,10 @@
 using UnityEngine;
 
-namespace BBUnity.Core2D.Physics {
+namespace BBUnity.Physics2D {
 
-    /* 
-     * TODO
-     * This should be updated to allow bounds to be set at creation, then position to be used to move the bounds
-     */
+    /// <summary>
+    /// 
+    /// </summary>
     public class BoundedRays {
 
         BoundedRay _left;

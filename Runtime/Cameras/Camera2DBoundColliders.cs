@@ -1,9 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-using BBUnity;
-
-namespace BBUnity.Core2D.Cameras {
+namespace BBUnity.Cameras {
 
     [Serializable]
     public struct Camera2DBoundColliderSettings {
@@ -23,11 +21,11 @@ namespace BBUnity.Core2D.Cameras {
         [SerializeField, Tooltip("The transform which will be used as the container for the Camera2DBoundColliders")]
         private GameObject _attachTo;
 
-        public bool CreateOnAwake {
+        public readonly bool CreateOnAwake {
             get { return _createOnAwake; }
         }
 
-        public float Offset {
+        public readonly float Offset {
             get { return _offset; }
         }
 
@@ -81,10 +79,14 @@ namespace BBUnity.Core2D.Cameras {
         }
 
         private BoxCollider2D CreateCollider(Vector2 offset, Vector2 size) {
-            return Utilities.Tap(gameObject.AddComponent<BoxCollider2D>(), (BoxCollider2D col) => {
-                col.size = size;
-                col.offset = offset;
-            });
+
+            // TODO
+            // return Utilities.Tap(gameObject.AddComponent<BoxCollider2D>(), (BoxCollider2D col) => {
+            //     col.size = size;
+            //     col.offset = offset;
+            // });
+
+            return null;
         }
 
         // public static Camera2DBoundColliders Create(Camera2D camera, Camera2DBoundColliderSettings settings) {
