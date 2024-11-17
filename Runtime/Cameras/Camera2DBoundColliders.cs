@@ -15,7 +15,7 @@ namespace BBUnity.Cameras {
         [SerializeField]
         private float _size;
 
-        [SerializeField, Layer]
+        [SerializeField, EditorAttributes.Layer]
         private int _layer;
 
         [SerializeField, Tooltip("The transform which will be used as the container for the Camera2DBoundColliders")]

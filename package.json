@@ -1,6 +1,6 @@
 {
   "name": "com.bigbearstudios.bbunity-core2d",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "displayName": "BBUnity Core2D",
   "description": "",
   "unity": "2018.3",
@@ -21,7 +21,7 @@
     }
   ],
   "dependencies": {
-    "com.bigbearstudios.bbunity-core": "1.5.0",
+    "com.bigbearstudios.bbunity-core": "5.0.0",
     "com.bigbearstudios.bbunity-test-support": "1.1.0"
   },
   "scripts": {
